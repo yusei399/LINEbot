@@ -11,10 +11,18 @@ function MyApp({ Component, pageProps }) {
     import("@line/liff").then((liff) => {
       console.log("start liff.init()...");
       liff
-        .init({ liffId: process.env.LIFF_ID })
+        .init({ liffId: "1657764194-vjw79d0e"})
         .then(() => {
           console.log("liff.init() done");
           setLiffObject(liff);
+          console.log(liff.isLoggedIn());
+          if (liff.isLoggedIn()) {
+            console.log(liff.getDecodedIDToken());
+            const context = liff.getContext()
+            const liffToken = liff.getAccessToken()
+            setUid(context.userId)
+            setAccessToken(liffToken)
+          }
         })
         .catch((error) => {
           console.log(`liff.init() failed: ${error}`);

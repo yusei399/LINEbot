@@ -9,5 +9,8 @@
   "keywords": [
     "LINE",
     "LIFF"
-  ]
+  ],
+  "dependencies": {
+    "@line/liff": "^2.21.4"
+  }
 }

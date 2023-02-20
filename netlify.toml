@@ -1,7 +1,6 @@
 [build]
   command = "cd src && yarn install && yarn build"
-  publish = "nextjs"
+  publish = "."
 
 [template.environment]
-  LIFF_ID = 1657764194-vjw79d0e
-
+  LIFF_ID = '1657764194-vjw79d0e'

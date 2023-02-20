@@ -11,18 +11,28 @@ function MyApp({ Component, pageProps }) {
     import("@line/liff").then((liff) => {
       console.log("start liff.init()...");
       liff
-        .init({ liffId: "1657764194-vjw79d0e"})
+        .init({ liffId: '1657764194-vjw79d0e'})
         .then(() => {
           console.log("liff.init() done");
           setLiffObject(liff);
           console.log(liff.isLoggedIn());
           if (liff.isLoggedIn()) {
+            console.log(getAccessToken);
             console.log(liff.getDecodedIDToken());
             const context = liff.getContext()
             const liffToken = liff.getAccessToken()
             setUid(context.userId)
-            setAccessToken(liffToken)
+            console.log(context.userId)
+            // setAccessToken(liffToken)
+            // console.log(setAccessToken(liffToken))
+            const getAccessToken = liff.getAccessToken();
+            console.log(getAccessToken);
+            if (!getAccessToken) {
+              window.alert('LIFFの認証に失敗しました。')
+              return
+            }
           }
+          console.log(getAccessToken);
         })
         .catch((error) => {
           console.log(`liff.init() failed: ${error}`);

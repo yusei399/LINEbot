@@ -21,6 +21,13 @@ function MyApp({ Component, pageProps }) {
             console.log(liff.getDecodedIDToken());
             const context = liff.getContext()
             const liffToken = liff.getAccessToken()
+            if (liffToken) {
+              {
+                "access_token": "6V8GFCfVe6nMJOA9kXFRODb54zr7Q7WhtS6smBuCaFBro5232LC4kuefa94G1Xy+ASpalp0V5OcQXeTilMeSlBn1aStqXHO+IGjvN/Kz5zxjCu3j2ZDs1StsWpSid4/QGg7f8tQ3Tl0y7BQjKfDB1o9PbdgDzCFqoOLOYbqAITQ=",
+                "expires_in": 2592000,
+                "token_type": "Bearer"
+              }
+            }
             setUid(context.userId)
             console.log(context.userId)
             // setAccessToken(liffToken)

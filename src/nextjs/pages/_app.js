@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { useState, useEffect } from "react";
+import {getServerToken} from "../pages/token";
 
 function MyApp({ Component, pageProps }) {
   const [liffObject, setLiffObject] = useState(null);
@@ -20,13 +21,10 @@ function MyApp({ Component, pageProps }) {
             console.log(getAccessToken);
             console.log(liff.getDecodedIDToken());
             const context = liff.getContext()
+            console.log(getServerToken())
             const liffToken = liff.getAccessToken()
             if (liffToken) {
-              {
-                "access_token": "6V8GFCfVe6nMJOA9kXFRODb54zr7Q7WhtS6smBuCaFBro5232LC4kuefa94G1Xy+ASpalp0V5OcQXeTilMeSlBn1aStqXHO+IGjvN/Kz5zxjCu3j2ZDs1StsWpSid4/QGg7f8tQ3Tl0y7BQjKfDB1o9PbdgDzCFqoOLOYbqAITQ=",
-                "expires_in": 2592000,
-                "token_type": "Bearer"
-              }
+              console.log(liffToken)
             }
             setUid(context.userId)
             console.log(context.userId)
@@ -39,7 +37,7 @@ function MyApp({ Component, pageProps }) {
               return
             }
           }
-          console.log(getAccessToken);
+          console.log(liffToken);
         })
         .catch((error) => {
           console.log(`liff.init() failed: ${error}`);

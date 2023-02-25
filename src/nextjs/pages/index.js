@@ -1,7 +1,7 @@
 import Head from "next/head";
 import packageJson from "../package.json";
 import MyApp from "./_app";
-
+import getLiffAccessToken from"./token";
 // const express = require('express')
 // const bodyparser = require('body-parser')
 // const signature = require('@line/bot-sdk').signature
@@ -44,7 +44,7 @@ export default function Home(props) {
         liffObject={props.liffObject}
         onClick={() => {props.liff.login()}}
       >login button</button>
-      <button >button1</button>
+      <button onClick={async () => {await getLiffAccessToken("1657764194-vjw79d0e")}} >button1</button>
       <button >button2</button>
     </div>
   );

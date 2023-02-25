@@ -2,6 +2,7 @@ module.exports = {
   webpack: (config) => {
     config.resolve.fallback = { fs: false };
     config.resolve.fallback = { crypto: false };
+    config.resolve.fallback = { buffer: false };
     return config;
   },
   reactStrictMode: true,

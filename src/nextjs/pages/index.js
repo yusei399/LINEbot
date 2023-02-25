@@ -37,7 +37,7 @@ export default function Home(props) {
     setAccessToken(liffToken)
   }
 
-  console.log(props.liff);
+  console.log(props.liff, "props.liff");
   return (
     <div>
       <button

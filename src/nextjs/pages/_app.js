@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import { useState, useEffect } from "react";
 import {getServerToken} from "../pages/token";
 
+
 function MyApp({ Component, pageProps }) {
   const [liffObject, setLiffObject] = useState(null);
   const [liffError, setLiffError] = useState(null);
@@ -10,7 +11,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     // to avoid `window is not defined` error
     import("@line/liff").then((liff) => {
-      console.log("start liff.init()...");
+      console.log("start liff.init()...", liff);
       liff
         .init({ liffId: '1657764194-vjw79d0e'})
         .then(() => {
@@ -21,11 +22,11 @@ function MyApp({ Component, pageProps }) {
             console.log(getAccessToken);
             console.log(liff.getDecodedIDToken());
             const context = liff.getContext()
-            console.log(getServerToken())
-            const liffToken = liff.getAccessToken()
-            if (liffToken) {
-              console.log(liffToken)
-            }
+            // console.log(getServerToken())
+            // const liffToken = liff.getAccessToken()
+            // if (liffToken) {
+            //   console.log(liffToken)
+            // }
             setUid(context.userId)
             console.log(context.userId)
             // setAccessToken(liffToken)
